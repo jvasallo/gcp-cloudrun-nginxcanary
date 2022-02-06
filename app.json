@@ -1,0 +1,20 @@
+{
+    "name": "gcp-cloudrun-nginxcanary",
+    "env": {
+        "CANARY_REGEX": {
+            "description": "Provide a regex to match IPs against. Such as: ^127\\.0\\.0\\.1\\",
+            "value": "^192\\.168\\.1\\.1",
+            "required": true
+        }
+    },
+    "options": {
+        "allow-unauthenticated": true,
+        "memory": "512Mi",
+        "cpu": "1",
+        "port": 80,
+        "http2": false
+    },
+    "build": {
+        "skip": false
+    }
+}

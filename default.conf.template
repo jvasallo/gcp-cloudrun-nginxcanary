@@ -1,0 +1,9 @@
+server {
+    # example using regex (you can leave off the last octet if you segment your private network that way.
+    if ($http_x_forwarded_for ~ ${CANARY_REGEX}) {
+        rewrite ^/* /page-canary.html last;
+        # proxy_pass http://gcs-bucket/website/1
+    }
+
+    rewrite ^/* /page-mainline.html last;
+}
